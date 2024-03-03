@@ -1,12 +1,67 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/plantilla :: head">
-       
-    </head>
-    <body>
-        <header th:replace="layout/plantilla :: header"></header>
-        <footer th:replace="layout/plantilla :: footer"></footer>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Preguntas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Agrega estilos personalizados si es necesario */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Lista de Preguntas</h1>
+        <!-- Tabla para mostrar los registros de la tabla pregunta -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Enunciado</th>
+                    <th>Tema</th>
+                    <th>Puntos</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargarán dinámicamente los registros -->
+                <!-- Puedes generar estos registros con Thymeleaf o JavaScript -->
+                <tr>
+                    <td>1</td>
+                    <td>Ejemplo de enunciado</td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>imagen.jpg</td>
+                    <td>
+                        <!-- Botón para eliminar el registro -->
+                        <button type="button" class="btn btn-danger btn-sm" onclick="eliminarPregunta(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <!-- Repite la estructura de la fila para cada registro de la tabla -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Función para eliminar un registro de la tabla
+        function eliminarPregunta(id) {
+            // Aquí puedes implementar la lógica para enviar la solicitud de eliminación al servidor
+            // Por ejemplo, puedes usar AJAX para enviar una solicitud DELETE al endpoint correspondiente
+            // Una vez que el registro se elimine exitosamente del servidor, puedes eliminar la fila de la tabla dinámicamente
+            // Aquí te muestro un mensaje de alerta como ejemplo
+            if (confirm("¿Estás seguro de eliminar esta pregunta?")) {
+                // Aquí puedes agregar la lógica para eliminar la pregunta con el ID proporcionado
+                // Por ejemplo, puedes hacer una llamada AJAX al backend para eliminar la pregunta del servidor
+                // Una vez eliminada la pregunta del servidor, elimina la fila de la tabla
+                // document.getElementById('fila-' + id).remove();
+                alert("La pregunta con ID " + id + " ha sido eliminada.");
+            }
+        }
+    </script>
+</body>
 </html>

@@ -29,9 +29,9 @@ public class Categoria implements Serializable {
         this.rutaImagen = rutaImagen;
         this.activo = activo;
     }
-
-    
-    
-    
-    
 }
+    
+    
+    
+    
+
