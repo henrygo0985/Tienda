@@ -1,4 +1,3 @@
-
 package com.tienda.controller;
 
 import com.tienda.domain.Producto;
@@ -22,15 +21,16 @@ public class ProductoController {
     
     @Autowired
     ProductoService productoService;
+    
     @Autowired
     CategoriaService categoriaService;
     
     @GetMapping("/listado")
-    public String listado (Model model) {
+    public String listado(Model model) {
         List<Producto> lista = productoService.getProductos(false);
         model.addAttribute("productos", lista);
         model.addAttribute("totalProductos", lista.size());
-        model.addAttribute("categorias",categoriaService.getCategorias(true));
+        model.addAttribute("categorias", categoriaService.getCategorias(true));
         return "/producto/listado";
     }
     @GetMapping("/nuevo")
@@ -66,7 +66,7 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
+        model.addAttribute("categorias", categoriaService.getCategorias(true));
         return "/producto/modifica";
     }
 }
-

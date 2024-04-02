@@ -23,8 +23,9 @@ public class CategoriaController {
     CategoriaService categoriaService;
     
     @GetMapping("/listado")
-    public String listado (Model model) {
-        List<Categoria> lista = categoriaService.getCategorias(false);
+    public String listado(Model model) {
+        //List<Categoria> lista = categoriaService.getCategorias(false);
+        List<Categoria> lista = categoriaService.buscarPorDescripcion("Tarjeta Madre");
         model.addAttribute("categorias", lista);
         model.addAttribute("totalCategorias", lista.size());
         return "/categoria/listado";
@@ -65,4 +66,3 @@ public class CategoriaController {
         return "/categoria/modifica";
     }
 }
-
